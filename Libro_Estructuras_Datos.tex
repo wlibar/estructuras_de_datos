@@ -1,0 +1,153 @@
+
+%-------------------------------------------------------------------------------------
+% ESTA PLANTILLA REQUIERE UNA INSTALACION ACTUALIZADA DE TEXLIVE O MIKTEX (AL 2014)
+%
+% ACTUALICE TODA LA DISTRIBUCIÓN MIKTEX  O TEXLIVE ANTES DE USAR ESTA PLANTILLA
+% O HAGA UNA REINSTALACIÓN DE LA DISTRIBUCIÓN
+%
+%  >>>>>  Esta plantilla requiere el paquete "psboxit" (está en esta carpeta: psboxit.sty) <<<<<<
+%----------------------------------------------------------------------------------------
+
+
+\documentclass[11pt,fleqn,x11names,table]{book}                                                  
+% Dimensiones y márgenes.     
+\usepackage[text={15cm,25cm},centering,headsep=20pt,top=0.8in,
+bottom = 0.8in,letterpaper,showframe=false]{geometry} 
+
+%----------------------------------------------------------------------
+\input{Archivo_Diseno}% = Paquetes y código de diseño
+%----------------------------------------------------------------------
+
+\renewcommand{\tablename}{Tabla}
+\definecolor{styrmitcrwcgray1}{rgb}{0.2,0.2,0.2}
+\definecolor{wcgray}{rgb}{0,0.1333,0.3333}
+\usetikzlibrary{arrows}
+
+\usepackage{makeidx}
+\makeindex
+\usepackage{fourier} % Fuente global
+% Insertar  páginas .pdf
+\usepackage{pdfpages}
+
+
+\begin{document}
+% Insertar  Portada.pdf
+\includepdf[pages=-]{images/Portada}
+
+\pagenumbering{roman} 
+%\pagecolor{grisamarillo}
+\parindent=0mm    % Sin sangría
+\pagestyle{empty}
+\titulo{% Autor (\fnte es un comando para un tipo de fuente especial)
+       \huge\bfseries\color{wcolornotas} J. Viviana Mora., W Libardo Pantoja Y.}{%
+        %pre-título
+        \color{verdeF}Estructuras de Datos
+        }{%
+        %Título principal
+         {\fontsize{80}{1} \selectfont Estructuras de Datos Dinámicas}
+        }{%
+        %Adicional
+        Una forma fácil de aprender
+        }
+
+% %----------------------------------------------------------------------------------------
+% % Página para "derechos reservados", ISBN, licencia creative commons, etc.
+% %----------------------------------------------------------------------------------------
+\clearpage
+\begin{copyrightpage}{% 
+   Universidad del Cauca (www.unicauca.edu.co). 
+   Correo Electr\'onico: \url{editorial@unicauca.edu.co}
+   Departamento de Sistemas
+   Facultad de Ingeniería Electrónica y Telecomunicaciones
+   Apdo. 159-7050, Popayán
+   Teléfono (057)8209800
+   Fax (058)8209900}%
+Mora, Viviana.
+\    Estructuras de Datos Dinámicas
+\ W. Libardo Pantoja Yépez
+\ -- Departamento de Sistemas, FIET, Universidad del Cauca.  2015.
+\    xxx p.
+\ ISBN 978-9977-66-227-5
+\    1. Estructuras.  2. de Datos 3. Dinámicas.\\     
+\end{copyrightpage}
+~\vfill
+%\thispagestyle{empty}
+
+\noindent 
+\parbox[s]{0.35\textwidth}{Licencia.}\parbox[c]{0.65\textwidth}{
+ \color{gray}
+ \fhv{9}{Revista digital}\\
+ \fhvb{10}{Matemática, Educación e Internet.}\\
+  \fntg[pag][9]{%
+  \href{http://www.tec-digital.itcr.ac.cr/revistamatematica/}{http://www.tec-digital.itcr.ac.cr/revistamatematica/.}}
+ }\\\\ % 
+
+%\noindent {\color{colordominante} Photos by}: Viviana Loaiza. Parque Nacional Chirripó, Costa Rica.\\
+
+
+\includegraphics[scale=0.7]{images/logocc}
+\noindent  {{\fontsize{9}{1} \selectfont Este libro se distribuye bajo la licencia Creative Commons: Atribución-NoComercial-SinDerivadas CC BY-NC-ND (la "Licencia"). Usted puede utilizar este archivo de conformidad con la Licencia. Usted puede obtener una copia de la Licencia en 
+\url{http://creativecommons.org/licenses/by-nc-nd/3.0/}.   En particular, esta licencia permite copiado y distribución gratuita, pero no permite venta ni modificaciones de este material.\\
+  Límite de responsabilidad y exención de garantía: El autor o los autores han hecho su mejor esfuerzo en la preparación de este material.
+  Esta edición se proporciona``tal cual''. Se distribuye gratuitamente con la esperanza de que sea útil, pero sin ninguna garantía expresa o implícita respecto a la exactitud o completitud del contenido.\\
+  La Revista digital Matemáticas, Educación e Internet es una publicación electrónica. El material publicado en ella expresa la opinión de sus autores y no necesariamente la opinión de la revista ni la del Instituto Tecnológico de Costa Rica.}\\
+  
+  
+%--------------------------------------------------------------------------------
+%	Tabla de contenidos
+%--------------------------------------------------------------------------------
+\tableofcontents
+
+%---------------------------------------------------------------------------------
+% Prólogo
+%---------------------------------------------------------------------------------
+
+\begin{prologo}
+\thispagestyle{empty}
+Este texto  cubre aspectos básicos e intermedios sobre ipsúm dolor sit amet, consectetur adipiscing elit. Nam dignissim varius tempus. Cras eu malesuada ipsum. Pellentesque ut lorem velit. Mauris vehicula est orci, bibendum tincidunt enim mattis a. Interdum et malesuada fames ac ante ipsum primis in faucibus.. \\
+
+ ...\\
+ 
+
+    
+\textit{Popayan, 2015.} \hfill{\sc V. Mora, W. Pantoja.}
+\end{prologo}
+
+
+\cleardoublepage
+\pagestyle{fancy} % Habilitar encabezados
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+
+%--------------------------------------------------------------------------------------
+%	Capítulos
+%---------------------------------------------------------------------------------------
+\include{Capitulos/Capitulo1}
+\include{Capitulos/Capitulo2}
+\include{Capitulos/Capitulo3}
+
+%----------------------------------------------------------------------------------------
+%	Bibliografía
+%----------------------------------------------------------------------------------------
+\renewcommand\refname{\Large {Bibliograf\'ia}\vspace{1cm}} 
+\addcontentsline{toc}{section}{\numberline{}Bibliograf\'{\i}a}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,../../biblio/BibPhD}{}
+
+%----------------------------------------------------------------------------------------
+%	Apéndices
+%----------------------------------------------------------------------------------------
+
+%\input{apendiceAgregarPaquetesNuevos.tex}
+%\input{Habilitarshellescape.tex}
+% \input{ApendiceA.tex}%insalar una distribución y un editor
+% \input{softwareadicional}
+% \input{massoftwareadicional}
+% \input{ApendiceB.tex}
+% \input{IndiceComun.tex}
+% 
+% %%%%%%%%%%% ImprimirIndice
+%\printindex
+
+\end{document}

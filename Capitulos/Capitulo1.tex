@@ -1,0 +1,65 @@
+%--------------------------------------------------------------------------------------
+%	Capítulo 1
+%---------------------------------------------------------------------------------------
+\chapter{Capítulo 1: Introducción a las Estructuras de Datos}
+
+
+ \begin{caja}[Advertencia.]
+ Las siguientes plantillas usan la versión 2014 del paquete
+ \verb+tcolorbox+ (entre otros paquetes recientes),  por lo tanto {\it debe actualizar los paquetes de sus distribución} \TeX{} o instalar manualmente este paquete (ver el capítulo 9 del libro, \url{http://www.tec-digital.itcr.ac.cr/revistamatematica/Libros/LATEX/LaTeX_2014.pdf}). El paquete "psboxit" viene incluido en la carpeta.
+ \end{caja}
+
+\section{Prueba de entornos}
+
+\begin{definicion}[(Igualdad)][cap1:Igualdad]
+  $$a=b$$
+\end{definicion}
+
+\bigskip
+Según la definición \ref{cap1:Igualdad}, la igualdad...\\
+
+\bigskip
+\begin{teorema}
+ $$a=b$$
+\end{teorema}
+
+\bigskip
+\begin{ejemplo}
+ $$a=b$$
+\end{ejemplo}
+
+%------------------------------------------------------------------------------------------
+\clearpage
+
+\begin{lema}
+  $$a=b$$
+\end{lema}
+
+\bigskip
+\begin{corolario}
+ $$a=b$$
+\end{corolario}
+
+\bigskip
+\begin{caja}[Una caja de comentario]
+ $$a=b$$
+\end{caja}
+
+\subsection{Tablas}
+ % \usepackage{array,tabularx}
+ % \usepackage[table, x11names]{xcolor}
+
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X} % Ver tabularx
+%
+\tcbset{enhanced,fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
+         colback=LightCyan1,colframe=DarkOrange4,colbacktitle=DarkOrange4,
+         coltitle=black,center title
+       }
+
+%%-Tabla - Estilo beamer
+\begin{tcolorbox}[tabularx={X||X||X},title= {\white Iteración}, beamer]
+  & $x_i$           & $y_i=f(x_i)$ \\\hline\hline
+A & $x_0=0$         & $0$           \\\hline
+B & $x_1=0.75$      &  $-0.0409838$ \\\hline
+C & $x_2=1.5$       &  $1.31799$  
+\end{tcolorbox}
