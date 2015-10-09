@@ -9,7 +9,7 @@ La pila es muy útil en situaciones cuando los datos deben almacenarse y luego r
 
 \begin{figure}
 	\centering\textbf{}
-		\includegraphics{images/RepresentacionPila}
+		\includegraphics{Diagramas/RepresentacionPila}
 	\caption{Representación de una Pila}	
 	\label{fig:pila-representacion}
 \end{figure}
@@ -67,7 +67,7 @@ A continuación se muestra una implementación en Java del TAD Pila. Se ha imple
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.7]{images/RepresentacionPilaNodosEnlazados}
+	\includegraphics[scale=0.7]{Diagramas/RepresentacionPilaNodosEnlazados}
 	\caption{Representación de la Pila con Nodos Enlazados}	
 	\label{fig:pila-nodos-enlazados}
 \end{figure}
@@ -77,7 +77,7 @@ La Figura \ref{fig:pila-diagrama-clases} muestra el diagrama de clases. Se puede
 
 \begin{figure}
 	\centering
-		\includegraphics{images/DiagramaClases-Pila}
+		\includegraphics{Diagramas/DiagramaClases-Pila}
 	\caption{Diagrama de clase de la implementación del TAD Pila}	
 	\label{fig:pila-diagrama-clases}
 \end{figure}
@@ -174,7 +174,7 @@ En la línea 21 se puede apreciar el método \textbf{apilar}. Este método recib
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.7]{images/RepresentacionPilaNodosEnlazadosApilar}
+	\includegraphics[scale=0.7]{Diagramas/RepresentacionPilaNodosEnlazadosApilar}
 	\caption{Representación de la Pila después de apilar el elemento 23}	
 	\label{fig:pila-nodos-enlazados-apilar}
 \end{figure}
@@ -250,7 +250,7 @@ El algoritmo que resuelve la correspondencia adecuada de delimitadores evalúa l
 Las pilas se utilizan para evaluar expresiones aritméticas. Por ejemplo:
 
 \begin{equation*}
-	\frac{(100+23)\ast 231}{(31-14)^2}-34
+	\frac{(100+23)\ast 231}{(31-14)^2}-(34 - 12)
 \end{equation*}
 
 
@@ -278,30 +278,13 @@ Para convertir una expresión dada en notación infija a una notación postfija,
 
 \item Solamente se manejarán los siguientes operadores (Están dados ordenadamente de mayor a menor según su prioridad de ejecución):
 
-\begin{flushleft}
-	\tablefirsthead{}
-	\tablehead{}
-	\tabletail{}
-	\tablelasttail{}
-	\begin{supertabular}{|m{5.663cm}|m{3.9350002cm}|m{4.6000004cm}|}
-		\hline
-		{\bfseries\color{black} Operador} &
-		{\bfseries\color{black} Prioridad dentro de la pila} &
-		{\bfseries\color{black} Prioridad fuera de la pila}\\\hline
-		{\color{black} \textbf{\^{}} : potencia} &
-		\centering 3 &
-		 3\\\hline
-		{\color{black} \textbf{*} \textbf{/} : Multiplicación y división} &
-		\centering 2 &
-		 2\\\hline
-		{\color{black} \textbf{+} \textbf{-} : \ Suma y resta} &
-		\centering 1 &
-		 1\\\hline
-		{\color{black} \textbf{(} : Paréntesis izquierdo} &
-		\centering 0 &
-		 4\\\hline
-	\end{supertabular}
-\end{flushleft}
+\begin{tcolorbox}[tabularx={X||X||X},title= {\white Prioridad de Operadores}, beamer]
+    \textbf{Operador} & \textbf{Prioridad dentro de la pila} & \textbf{Prioridad fuera de la pila}\\\hline
+	{\textbf{\^{}} : potencia} & 3 & 3 \\\hline
+	{\textbf{*} \textbf{/} : Multiplicación y división} & 2 &  2 \\\hline
+	{\textbf{+} \textbf{-} : \ Suma y resta} & 1 &  1  \\\hline
+	{\textbf{(} : Paréntesis izquierdo} & 0 &  4
+\end{tcolorbox}
 
 \item Los operadores de más alta prioridad se ejecutan primero. Si hubiera en una expresión dos o más operadores de igual prioridad, entonces se procesan de izquierda a derecha.
 Las subexpresiones parentizadas tendrán más prioridad que cualquier operador.
