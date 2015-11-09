@@ -3,7 +3,7 @@
 \section{Definición de Pila}
 Una pila (stack en inglés) es una lista ordinal o estructura de datos en la que el modo de acceso a sus elementos es de tipo LIFO (del inglés Last In First Out, último en entrar, primero en salir) que permite almacenar y recuperar datos. Se aplica en multitud de ocasiones en informática debido a su simplicidad y ordenación implícita en la propia estructura. 
 
-La Figura  \ref{fig:pila-diagrama-clases} muestra la representación gráfica de una pila con sus operaciones fundamentales de apilar (push en inglés) y desapilar o retirar (pos en inglés.).
+La Figura  \ref{fig:pila-representacion} muestra la representación gráfica de una pila con sus operaciones fundamentales de apilar (push en inglés) y desapilar o retirar (pos en inglés.).
 
 La pila es muy útil en situaciones cuando los datos deben almacenarse y luego recuperarse en orden inverso.
 
@@ -37,7 +37,7 @@ Destructora:
 
 Pila crearPila( void )
 /* Crea una pila vacia */
-{ post: crearPila =  }
+{ post: crearPila = \phi }
 
 void apilar(Pila pil, T elem)
 /* Coloca sobre el tope de la pila el elemento elem */\
@@ -55,14 +55,14 @@ T cima(Pila pil )
 
 int esVacia( Pila pil )
 /* Informa si la pila esta vacia */
-{ post: esVacia = ( pil = ) }
+{ post: esVacia = ( pil =  \phi) }
 
 void destruirPila( Pila pil )
 /* Destruye la pila retornando toda la memoria ocupada */
 {post: pil ha sido destruida }
 \end{lstlisting}
 
-\section{Implementación del TAD en Java}
+\section{Implementación del TAD Pila en Java}
 A continuación se muestra una implementación en Java del TAD Pila. Se ha implementado una pila dinámica utilizando nodos enlazados.  Cada nodo almacena un valor y contiene una referencia al siguiente nodo. Supongamos una pila que almacene datos enteros, a la cual se le han aplicado las siguientes operaciones: apilar(10), apilar(35), apilar(12), apilar(7). La Figura \ref{fig:pila-nodos-enlazados} representa cómo quedaría la pila después de apilar en orden los datos 10, 35, 12 y 7. Se puede apreciar que cada nodo almacena un dato y a la vez existe una referencia que almacena la dirección del siguiente nodo. Además, existe una referencia llamada cabeza que apunta al último elemento que entró (en este caso al dato 7).
 
 \begin{figure}
@@ -133,13 +133,13 @@ public class Pila<T> {
  	}
 	//Verifica si la pila esta vacia
  	public boolean esVacia() {
- 		return (cabeza == null)
+ 		return (cabeza == null);
  	}
 	//Apila un elemento nuevo
  	public void apilar(T valor) {
 	 	//Crear un nuevo Nodo
  		Nodo<T> nuevo = new Nodo<T>();
-	 	//Fijaer el valor dentro del nodo
+	 	//Fijar el valor dentro del nodo
  		nuevo.setValor(valor);
  		if (esVacia()) {
 	 		//Cabeza apunta al nodo nuevo
@@ -216,6 +216,40 @@ El tope de la pila es: 5
 El tope de la pila es: 2
 El tope de la pila es: null
 \end{lstlisting}
+
+\section{La clase Stack de java}
+La API de java ya trae implementada la pila mediante la clase \textit{java.util.StackStack}. Esta clase es muy sencilla y al crear un objeto de tipo Stack con el constructor básico crea una pila con ningún elemento.
+
+Las operaciones básicas de la clase Stack son \textit{push} que introduce un elemento en la pila, \textit{pop} que saca un elemento de la pila, \textit{peek} que consulta el primer elemento de la cima de la pila \textit{empty} que comprueba si la pila está vacía y \textit{search} que busca un determinado elemento dentro de la pila y devuelve su posición dentro de ella.
+
+Entonces la pregunta que nos podemos hacer es, ¿si java ya trae una pila por qué implementar una propia mediante nodos enlazados? La respuesta es simple, porque implementando nuestra propia pila sabremos cómo funciona internamente una pila y habrá más aprendizaje. A continuación se muestra el mismo ejemplo de la sección Implementación del TAD en Java pero utilizando la clase Stack de java.
+
+\begin{lstlisting}[language=Java]
+/* Ejemplo del uso de la clase Stack*/
+import java.util.Stack;
+public class EjemploStack {
+    public static void main(String arg[]) {
+        //Crea una nueva pila de enteros
+        Stack<Integer> pila = new Stack<Integer>();   
+		//Se apilan algunos datos enteros
+		pila.push(2);
+		pila.push(5);
+		pila.push(7);
+		System.out.println("El tope de la pila es: " + pila.peek());
+		//Se desapila un elemento
+		pila.pop();
+		System.out.println("El tope de la pila es: " + pila.peek());
+		//Se desapila un elemento
+		pila.pop();
+		System.out.println("El tope de la pila es: " + pila.peek());
+		//Se desapila
+		pila.pop();
+		//Como la pila esta vacia dispara la excepcion java.util.EmptyStackException
+		System.out.println("El tope de la pila es: " + pila.peek());
+    }
+}
+\end{lstlisting}
+
 
 \section{Problemas que se resuelven con Pilas}
 Las pilas son muy útiles en situaciones cuando los datos deben almacenarse y luego recuperarse en orden inverso. A continuación se ilustran algunos ejemplos.
@@ -353,7 +387,7 @@ Una vez convertida la expresión infija a notación postifja se puede aplicar un
 
 
 \section{Ejercicios Propuestos}
-A continuación se plantean los siguientes ejercciios los cuales utilizan pilas como estructura central.
+A continuación se plantean los siguientes ejercicios los cuales utilizan pilas como estructura central.
 
 \begin{enumerate}
 	\item Utilizando el algoritmo de conversión de infijas a postfijas, pasar a notación postfija las siguientes expresiones:
